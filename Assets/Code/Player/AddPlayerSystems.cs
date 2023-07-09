@@ -7,7 +7,7 @@ namespace Code.Player
     {
         [SerializeField] private float _jumpForce;
         [SerializeField] private KeyCode _jumpKeyCode, _shootKeyCode;
-        [SerializeField] private GameObject _playerPrefab;
+        [SerializeField] private PlayerMono _playerPrefab;
         [SerializeField] private Transform _spawnPoint;
         [SerializeField] private float _movementSpeed;
 

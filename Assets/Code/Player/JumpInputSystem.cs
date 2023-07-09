@@ -22,7 +22,6 @@ namespace Code.Player
                 var ecsWorld = systems.GetWorld();
                 if (_player.Unpack(ecsWorld, out int entityIndex))
                 {
-                    Debug.Log(ecsWorld.GetPool<GroundDetectRequestSelf>().Has(entityIndex));
                     entityIndex.Add<JumpRequestSelf>(ecsWorld);
                     entityIndex.Add<GroundDetectRequestSelf>(ecsWorld);
                 }
