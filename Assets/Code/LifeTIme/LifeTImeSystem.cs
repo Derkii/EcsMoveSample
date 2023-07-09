@@ -11,13 +11,13 @@ namespace Code.LifeTIme
         public void Run(EcsSystems systems)
         {
             var filter = systems.GetWorld().Filter<FactoryComponent>().Inc<LifeTime>().End();
-            foreach (var entityIndex in filter)
+            foreach (var entity in filter)
             {
-                ref var lifeTime = ref entityIndex.Get<LifeTime>(systems.GetWorld());
+                ref var lifeTime = ref entity.Get<LifeTime>(systems.GetWorld());
                 if (lifeTime.Time <= 0f)
                 {
-                    entityIndex.Get<FactoryComponent>(filter.GetWorld()).Factory.Despawn(
-                        entityIndex.Get<UnityRef<GameObject>>(systems.GetWorld()).Value, entityIndex,
+                    entity.Get<FactoryComponent>(filter.GetWorld()).Factory.Despawn(
+                        entity.Get<UnityRef<GameObject>>(systems.GetWorld()).Value, entity,
                         systems.GetWorld());
                 }
                 else

@@ -1,7 +1,6 @@
 ﻿using Code.Ecs;
 using Code.Requests;
 using Leopotam.EcsLite;
-using UnityEditor;
 using UnityEngine;
 
 namespace Code.GroundDetect
@@ -22,12 +21,12 @@ namespace Code.GroundDetect
             var ecsWorld = systems.GetWorld();
             var filter = ecsWorld.Filter<GroundDetectComponent>().Inc<GroundDetectRequestSelf>().End();
 
-            foreach (var entityIndex in filter)
+            foreach (var entity in filter)
             {
-                ref var groundDetect = ref entityIndex.Get<GroundDetectComponent>(ecsWorld);
+                ref var groundDetect = ref entity.Get<GroundDetectComponent>(ecsWorld);
                 groundDetect.OnGround = Physics.Raycast(groundDetect.Origin.position, -groundDetect.Origin.up,
                     _maxDistanceForRay, _groundLayerMask);
-                entityIndex.Del<GroundDetectRequestSelf>(ecsWorld);
+                entity.Del<GroundDetectRequestSelf>(ecsWorld);
             }
         }
     }

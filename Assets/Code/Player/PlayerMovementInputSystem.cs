@@ -13,9 +13,9 @@ namespace Code.Player
         {
             var ecsWorld = systems.GetWorld();
             _filter = ecsWorld.Filter<InputComponent>().Inc<PlayerTag>().End();
-            foreach (var entityIndex in _filter)
+            foreach (var entity in _filter)
             {
-                ref var inputComponent = ref entityIndex.GetOrAdd<InputComponent>(ecsWorld);
+                ref var inputComponent = ref entity.GetOrAdd<InputComponent>(ecsWorld);
 
                 inputComponent.Direction = new Vector3(UnityEngine.Input.GetAxis("Horizontal"), 0f,
                     UnityEngine.Input.GetAxis("Vertical"));

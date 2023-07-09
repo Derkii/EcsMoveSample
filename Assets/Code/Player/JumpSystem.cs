@@ -22,19 +22,19 @@ namespace Code.Player
         {
             var ecsWorld = systems.GetWorld();
             _filter = ecsWorld.Filter<UnityRef<Rigidbody>>().Inc<JumpRequestSelf>().Inc<GroundDetectComponent>().End();
-            foreach (var entityIndex in _filter)
+            foreach (var entity in _filter)
             {
-                entityIndex.Del<JumpRequestSelf>(ecsWorld);
-                AddForce(entityIndex, ecsWorld);
+                entity.Del<JumpRequestSelf>(ecsWorld);
+                AddForce(entity, ecsWorld);
             }
         }
 
-        private async UniTaskVoid AddForce(int entityIndex, EcsWorld ecsWorld)
+        private async UniTaskVoid AddForce(int entity, EcsWorld ecsWorld)
         {
-            if (entityIndex.Get<GroundDetectComponent>(ecsWorld).OnGround == false) return;
+            if (entity.Get<GroundDetectComponent>(ecsWorld).OnGround == false) return;
             UniTask.WaitForFixedUpdate();
 
-            var rigidbody = entityIndex.Get<UnityRef<Rigidbody>>(ecsWorld).Value;
+            var rigidbody = entity.Get<UnityRef<Rigidbody>>(ecsWorld).Value;
             rigidbody.velocity = new Vector3(rigidbody.velocity.x, _jumpForce, rigidbody.velocity.z);
         }
     }

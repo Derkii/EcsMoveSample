@@ -20,10 +20,10 @@ namespace Code.Player
             if (UnityEngine.Input.GetKeyDown(_jumpKeyCode))
             {
                 var ecsWorld = systems.GetWorld();
-                if (_player.Unpack(ecsWorld, out int entityIndex))
+                if (_player.Unpack(ecsWorld, out int entity))
                 {
-                    entityIndex.Add<JumpRequestSelf>(ecsWorld);
-                    entityIndex.Add<GroundDetectRequestSelf>(ecsWorld);
+                    entity.Add<JumpRequestSelf>(ecsWorld);
+                    entity.Add<GroundDetectRequestSelf>(ecsWorld);
                 }
             }
         }

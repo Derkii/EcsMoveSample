@@ -27,18 +27,18 @@ namespace Code.Bullet
         {
             var ecsWorld = systems.GetWorld();
             var filter = ecsWorld.Filter<ShootRequestSelf>().End();
-            foreach (var entityIndex in filter)
+            foreach (var entity in filter)
             {
-                var instance = _bulletFactory.Spawn(out EcsPackedEntity entity, ecsWorld);
-                instance.transform.position = entityIndex.Get<UnityRef<GameObject>>(ecsWorld).Value.transform.position;
-                ref var factoryComponent = ref entity.Get<FactoryComponent>(ecsWorld);
+                var instance = _bulletFactory.Spawn(out int bulletEntity, ecsWorld);
+                instance.transform.position = entity.Get<UnityRef<GameObject>>(ecsWorld).Value.transform.position;
+                ref var factoryComponent = ref bulletEntity.Get<FactoryComponent>(ecsWorld);
                 factoryComponent.Factory = _bulletFactory;
-                entity.Get<LifeTime>(ecsWorld).Time = _lifeTime;
-                entity.Get<InputComponent>(ecsWorld).Direction =
-                    entityIndex.Get<UnityRef<GameObject>>(ecsWorld).Value.transform.forward;
-                entity.Get<MovementSpeed>(ecsWorld).Speed = _bulletSpeed;
+                bulletEntity.Get<LifeTime>(ecsWorld).Time = _lifeTime;
+                bulletEntity.Get<InputComponent>(ecsWorld).Direction =
+                    entity.Get<UnityRef<GameObject>>(ecsWorld).Value.transform.forward;
+                bulletEntity.Get<MovementSpeed>(ecsWorld).Speed = _bulletSpeed;
                 factoryComponent.PackedFactory = _bulletFactory;
-                entityIndex.Del<ShootRequestSelf>(ecsWorld);
+                entity.Del<ShootRequestSelf>(ecsWorld);
             }
         }
     }
