@@ -13,6 +13,7 @@ namespace Code.OneFrames
         {
             foreach (var oneFrame in _oneFrames)
             {
+                updateSystems.Add(new OneFrameSystem(oneFrame.Value.GetType()));
             }
         }
     }

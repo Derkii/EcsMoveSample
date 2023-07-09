@@ -17,8 +17,7 @@ namespace Code.Timer
                 ref var timer = ref entity.Get<TimerComponent>(ecsWorld);
                 if (timer.Time <= 0f)
                 {
-                    if (ecsWorld.GetPool<OnTimerOver>().Has(entity) == false)
-                        entity.Add<OnTimerOver>(ecsWorld);
+                    entity.Add<OnTimerOver>(ecsWorld);
                 }
 
                 timer.Time -= Time.deltaTime;

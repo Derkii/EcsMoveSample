@@ -461,6 +461,7 @@ GameObject:
   - component: {fileID: 1405982581}
   - component: {fileID: 1405982584}
   - component: {fileID: 1405982585}
+  - component: {fileID: 1405982586}
   m_Layer: 0
   m_Name: Startup
   m_TagString: Untagged
@@ -516,6 +517,7 @@ MonoBehaviour:
   - {fileID: 1405982582}
   - {fileID: 1405982584}
   - {fileID: 1405982585}
+  - {fileID: 1405982586}
 --- !u!4 &1405982580
 Transform:
   m_ObjectHideFlags: 0
@@ -588,3 +590,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 09342d266a9f46a1854693ffb6be447c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1405982586
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1405982575}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4f2d4525d9244c1ca1febd2fc19c1ff8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _oneFrames:
+  - mode: 1
+    unityReference: {fileID: 0}
+    rawReference:
+      rid: 7086406537829679106
+  references:
+    version: 2
+    RefIds:
+    - rid: 7086406537829679106
+      type: {class: OnTimerOver, ns: Code.OneFrames, asm: Assembly-CSharp}

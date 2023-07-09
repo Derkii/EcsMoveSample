@@ -32,10 +32,11 @@ namespace Code.Bullet
             var shootRequestFilter = ecsWorld.Filter<ShootRequestSelf>().End();
 
             ref var timerComponent = ref _shootTimerEntity.Get<TimerComponent>(ecsWorld);
-            if (timerComponent.Time > 0f) return;
 
             foreach (var entity in shootRequestFilter)
             {
+                entity.Del<ShootRequestSelf>(ecsWorld);
+                if (timerComponent.Time > 0f) return;
                 timerComponent.Time =
                     timerComponent.StartTime;
                 var instance = _bulletFactory.Spawn(out int bulletEntity, ecsWorld);
@@ -47,7 +48,6 @@ namespace Code.Bullet
                 bulletEntity.Get<InputComponent>(ecsWorld).Direction =
                     entity.Get<UnityRef<GameObject>>(ecsWorld).Value.transform.forward;
                 bulletEntity.Get<MovementSpeed>(ecsWorld).Speed = _bulletSpeed;
-                entity.Del<ShootRequestSelf>(ecsWorld);
             }
         }
 
