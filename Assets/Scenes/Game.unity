@@ -135,7 +135,7 @@ GameObject:
   - component: {fileID: 243548283}
   - component: {fileID: 243548282}
   - component: {fileID: 243548281}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Plane
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -457,6 +457,10 @@ GameObject:
   - component: {fileID: 1405982579}
   - component: {fileID: 1405982578}
   - component: {fileID: 1405982576}
+  - component: {fileID: 1405982582}
+  - component: {fileID: 1405982581}
+  - component: {fileID: 1405982583}
+  - component: {fileID: 1405982584}
   m_Layer: 0
   m_Name: Startup
   m_TagString: Untagged
@@ -488,9 +492,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 580e4f3445d54fdcaa45194d7b243327, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _jumpForce: 10
+  _jumpKeyCode: 32
+  _shootKeyCode: 114
   _playerPrefab: {fileID: 2109473169592796527, guid: 26fd48cb057107d468caaa0a6225b06b, type: 3}
   _spawnPoint: {fileID: 853657907}
-  _movementSpeed: 1
+  _movementSpeed: 10
 --- !u!114 &1405982579
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -506,6 +513,9 @@ MonoBehaviour:
   _systemGroupAdds:
   - {fileID: 1405982578}
   - {fileID: 1405982576}
+  - {fileID: 1405982582}
+  - {fileID: 1405982584}
+  - {fileID: 1405982583}
 --- !u!4 &1405982580
 Transform:
   m_ObjectHideFlags: 0
@@ -521,3 +531,59 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1405982581
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1405982575}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 754411db988c4491acddd7cc7a46ca62, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _prefab: {fileID: 5918216169835909027, guid: 51efde21f34aa3c49a10ed5dba5b54c5, type: 3}
+--- !u!114 &1405982582
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1405982575}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 05ea8457f9574cbcb181e5e888937d15, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _bulletFactory: {fileID: 1405982581}
+  _bulletLifeTime: 5
+  _bulletSpeed: 5
+--- !u!114 &1405982583
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1405982575}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c0e7980550ba4ee7830769cde7e10913, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1405982584
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1405982575}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 74352fac3cf745b48582497aa6e5cf0d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _maxDistanceForRay: 2
+  _groundLayerMask:
+    serializedVersion: 2
+    m_Bits: 8
