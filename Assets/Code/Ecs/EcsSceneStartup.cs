@@ -1,4 +1,5 @@
-using System.Collections.Generic;
+using System;
+using System.Linq;
 using Leopotam.EcsLite;
 using UnityEngine;
 
@@ -7,31 +8,22 @@ namespace Code.Ecs
     public class EcsSceneStartup : MonoBehaviour
     {
         [SerializeField] private EcsSystemGroupAdd[] _systemGroupAdds;
-        private EcsSystems _updateSystems;
-        private EcsSystems _fixedUpdateSystems;
+        private IEcsSystems _updateSystems;
+        private IEcsSystems _fixedUpdateSystems;
         private EcsWorld _world;
-        public EcsWorld World => _world;
 
         private void Awake()
         {
             _world = new EcsWorld();
             _updateSystems = new EcsSystems(_world);
             _fixedUpdateSystems = new EcsSystems(_world);
-
-            var injectableSystemAdds = new List<IInjectable>();
             foreach (var systemAdd in _systemGroupAdds)
             {
+#if UNITY_EDITOR
+                if (_systemGroupAdds.Count(t => t == systemAdd) > 1)
+                    throw new Exception("Dublicate of add systems component");
+#endif
                 systemAdd.AddSystems(_updateSystems, _fixedUpdateSystems);
-                if (systemAdd is IInjectable injectable)
-                {
-                    injectableSystemAdds.Add(injectable);
-                }
-            }
-
-            foreach (var injectableSystemAdd in injectableSystemAdds)
-            {
-                injectableSystemAdd.Inject(_updateSystems);
-                injectableSystemAdd.Inject(_fixedUpdateSystems);
             }
         }
 

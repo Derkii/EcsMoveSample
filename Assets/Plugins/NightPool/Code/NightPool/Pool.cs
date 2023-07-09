@@ -7,7 +7,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace Code.NightPool.Code.NightPool
+namespace Plugins.NightPool.Code.NightPool
 {
     [DisallowMultipleComponent]
     public class Pool : MonoBehaviour

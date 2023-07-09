@@ -11,7 +11,7 @@ namespace Code.Player
         [SerializeField] private Transform _spawnPoint;
         [SerializeField] private float _movementSpeed;
 
-        public override void AddSystems(EcsSystems updateSystems, EcsSystems fixedUpdateSystems)
+        public override void AddSystems(IEcsSystems updateSystems, IEcsSystems fixedUpdateSystems)
         {
             updateSystems.Add(new PlayerSpawnSystem(_playerPrefab, _movementSpeed, _spawnPoint));
             updateSystems.Add(new PlayerMovementInputSystem());

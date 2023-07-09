@@ -459,8 +459,8 @@ GameObject:
   - component: {fileID: 1405982576}
   - component: {fileID: 1405982582}
   - component: {fileID: 1405982581}
-  - component: {fileID: 1405982583}
   - component: {fileID: 1405982584}
+  - component: {fileID: 1405982585}
   m_Layer: 0
   m_Name: Startup
   m_TagString: Untagged
@@ -515,7 +515,7 @@ MonoBehaviour:
   - {fileID: 1405982576}
   - {fileID: 1405982582}
   - {fileID: 1405982584}
-  - {fileID: 1405982583}
+  - {fileID: 1405982585}
 --- !u!4 &1405982580
 Transform:
   m_ObjectHideFlags: 0
@@ -559,18 +559,7 @@ MonoBehaviour:
   _bulletFactory: {fileID: 1405982581}
   _bulletLifeTime: 5
   _bulletSpeed: 5
---- !u!114 &1405982583
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1405982575}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c0e7980550ba4ee7830769cde7e10913, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  _bulletFireDelay: 1
 --- !u!114 &1405982584
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -587,3 +576,15 @@ MonoBehaviour:
   _groundLayerMask:
     serializedVersion: 2
     m_Bits: 8
+--- !u!114 &1405982585
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1405982575}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 09342d266a9f46a1854693ffb6be447c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

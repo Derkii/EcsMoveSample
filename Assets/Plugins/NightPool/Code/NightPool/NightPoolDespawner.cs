@@ -6,7 +6,7 @@
 
 using UnityEngine;
 
-namespace Code.NightPool.Code.NightPool
+namespace Plugins.NightPool.Code.NightPool
 {
     public class NightPoolDespawner : MonoBehaviour
     {

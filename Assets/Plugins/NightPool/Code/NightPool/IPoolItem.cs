@@ -4,7 +4,7 @@
 // Copyright (c) 2021-2022 Night Train Code
 // ----------------------------------------------------------------------------
 
-namespace Code.NightPool.Code.NightPool
+namespace Plugins.NightPool.Code.NightPool
 {
     public interface IPoolItem
     {

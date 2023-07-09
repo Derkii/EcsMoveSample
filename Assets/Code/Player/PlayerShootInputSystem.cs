@@ -16,7 +16,7 @@ namespace Code.Player
         }
 
 
-        public void Run(EcsSystems systems)
+        public void Run(IEcsSystems systems)
         {
             if (UnityEngine.Input.GetKeyDown(_shootKeyCode))
             {
@@ -24,7 +24,7 @@ namespace Code.Player
             }
         }
 
-        public void Init(EcsSystems systems)
+        public void Init(IEcsSystems systems)
         {
             var ecsWorld = systems.GetWorld();
             _player = ecsWorld.PackEntity((int)ecsWorld.Filter<PlayerTag>().End().GetRawEntities().GetValue(0));

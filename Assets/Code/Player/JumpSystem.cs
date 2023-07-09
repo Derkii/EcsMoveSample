@@ -18,7 +18,7 @@ namespace Code.Player
             _jumpForce = jumpForce;
         }
 
-        public void Run(EcsSystems systems)
+        public void Run(IEcsSystems systems)
         {
             var ecsWorld = systems.GetWorld();
             _filter = ecsWorld.Filter<UnityRef<Rigidbody>>().Inc<JumpRequestSelf>().Inc<GroundDetectComponent>().End();

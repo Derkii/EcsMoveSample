@@ -9,7 +9,7 @@ namespace Code.Player
     {
         private EcsFilter _filter;
 
-        public void Run(EcsSystems systems)
+        public void Run(IEcsSystems systems)
         {
             var ecsWorld = systems.GetWorld();
             _filter = ecsWorld.Filter<InputComponent>().Inc<PlayerTag>().End();

@@ -16,7 +16,7 @@ namespace Code.GroundDetect
             _maxDistanceForRay = maxDistanceForRay;
         }
 
-        public void Run(EcsSystems systems)
+        public void Run(IEcsSystems systems)
         {
             var ecsWorld = systems.GetWorld();
             var filter = ecsWorld.Filter<GroundDetectComponent>().Inc<GroundDetectRequestSelf>().End();

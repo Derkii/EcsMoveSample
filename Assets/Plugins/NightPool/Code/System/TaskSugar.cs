@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Threading.Tasks;
 
-namespace Code.NightPool.Code.System
+namespace Plugins.NightPool.Code.System
 {
     public static class TaskSugar
     {

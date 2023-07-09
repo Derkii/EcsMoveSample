@@ -1,12 +1,12 @@
 ﻿using Leopotam.EcsLite;
 
-namespace Code.Movement
+namespace Code.Timer
 {
-    public class AddMovementSystems : Ecs.EcsSystemGroupAdd
+    public class AddTimerSystems : Ecs.EcsSystemGroupAdd
     {
         public override void AddSystems(IEcsSystems updateSystems, IEcsSystems fixedUpdateSystems)
         {
-            fixedUpdateSystems.Add(new MovementSystem());
+            updateSystems.Add(new TimerSystem());
         }
     }
 }

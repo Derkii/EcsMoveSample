@@ -8,7 +8,7 @@ namespace Code.GroundDetect
         [SerializeField] private float _maxDistanceForRay;
         [SerializeField] private LayerMask _groundLayerMask;
 
-        public override void AddSystems(EcsSystems updateSystems, EcsSystems fixedUpdateSystems)
+        public override void AddSystems(IEcsSystems updateSystems, IEcsSystems fixedUpdateSystems)
         {
             updateSystems.Add(new GroundDetectSystem(_groundLayerMask, _maxDistanceForRay));
         }

@@ -5,6 +5,6 @@ namespace Code.Ecs
 {
     public abstract class EcsSystemGroupAdd : MonoBehaviour
     {
-        public abstract void AddSystems(EcsSystems updateSystems, EcsSystems fixedUpdateSystems);
+        public abstract void AddSystems(IEcsSystems updateSystems, IEcsSystems fixedUpdateSystems);
     }
 }

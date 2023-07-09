@@ -7,10 +7,10 @@
 using System;
 using System.Collections.Generic;
 using UnityEngine;
-using static Code.NightPool.Code.System.TaskSugar;
+using static Plugins.NightPool.Code.System.TaskSugar;
 using Object = UnityEngine.Object;
 
-namespace Code.NightPool.Code.NightPool
+namespace Plugins.NightPool.Code.NightPool
 {
     public static class NightPool
     {

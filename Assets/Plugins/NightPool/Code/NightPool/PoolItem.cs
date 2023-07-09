@@ -4,22 +4,18 @@
 // Copyright (c) 2021-2022 Night Train Code
 // ----------------------------------------------------------------------------
 
+using System;
 using UnityEngine;
 
-namespace Code.NightPool.Code.NightPool
+namespace Plugins.NightPool.Code.NightPool
 {
-    public class NightPoolEntry : MonoBehaviour
+    [Serializable]
+    public sealed class PoolItem
     {
-        [SerializeField] private PoolPreset poolPreset;
+        [SerializeField] private GameObject prefab;
+        [SerializeField] private int size;
 
-        private void Awake()
-        {
-            NightPool.InstallPoolItems(poolPreset);
-        }
-
-        private void OnDestroy()
-        {
-            NightPool.Reset();
-        }
+        public GameObject Prefab => prefab;
+        public int Size => size;
     }
 }

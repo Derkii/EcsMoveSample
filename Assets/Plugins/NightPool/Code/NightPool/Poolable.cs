@@ -7,7 +7,7 @@
 using System;
 using UnityEngine;
 
-namespace Code.NightPool.Code.NightPool
+namespace Plugins.NightPool.Code.NightPool
 {
     [DisallowMultipleComponent]
     public class Poolable : MonoBehaviour, IPoolItem

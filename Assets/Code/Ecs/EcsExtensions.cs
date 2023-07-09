@@ -13,7 +13,7 @@ namespace Code.Ecs
         public static ref T Get<T>(this EcsPackedEntity entity, EcsWorld world) where T : struct
         {
             if (!entity.Unpack(world, out int entityID)) throw new Exception("Entity isn't alive");
-            return ref world.GetPool<T>().Get(entityID);
+            return ref entityID.Get<T>(world);
         }
 
         public static ref T GetOrAdd<T>(this int entity, EcsWorld world) where T : struct
@@ -43,13 +43,13 @@ namespace Code.Ecs
         public static ref T Add<T>(this EcsPackedEntity entity, EcsWorld world) where T : struct
         {
             if (!entity.Unpack(world, out int entityID)) throw new Exception("Entity isn't alive");
-            return ref entity.Add<T>(world);
+            return ref entityID.Add<T>(world);
         }
 
         public static ref T GetOrAdd<T>(this EcsPackedEntity entity, EcsWorld world) where T : struct
         {
             if (!entity.Unpack(world, out int entityID)) throw new Exception("Entity isn't alive");
-            return ref entity.GetOrAdd<T>(world);
+            return ref entityID.GetOrAdd<T>(world);
         }
     }
 }
